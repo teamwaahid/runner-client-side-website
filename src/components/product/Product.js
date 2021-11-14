@@ -1,0 +1,61 @@
+import React from "react";
+import { Card, Col, Row } from "react-bootstrap";
+import Rating from "react-rating";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar as fullStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar as emptyStar } from "@fortawesome/free-regular-svg-icons";
+import { NavLink } from "react-router-dom";
+
+const Product = ({ product }) => {
+  const { _id, img, title, description, price, rating } = product;
+
+  return (
+    <Col sm={12} md={6} lg={4}>
+      <div className="m-2">
+        <Card className="mx-auto" style={{ width: "21rem" }}>
+          <Card.Img variant="top" style={{ minHeight: "220px" }} src={img} />
+          <Card.Body className="my-1 py-1">
+            <Card.Title>{title?.slice(0, 25)}</Card.Title>
+            <Card.Text>{description?.slice(0, 50)}</Card.Text>
+          </Card.Body>
+          <Card.Body className="my-1 py-1">
+            <h4>Price: {price}$</h4>
+          </Card.Body>
+          <Card.Body className="my-1 py-1">
+            <Row>
+              <Col>
+                <Rating
+                  initialRating={rating}
+                  readonly
+                  emptySymbol={
+                    <FontAwesomeIcon
+                      className="text-warning"
+                      icon={emptyStar}
+                    />
+                  }
+                  fullSymbol={
+                    <FontAwesomeIcon
+                      className="text-warning"
+                      icon={fullStar}
+                    />
+                  }
+                />
+                <span>{rating}</span>
+              </Col>
+            </Row>
+          </Card.Body>
+          <Card.Body className="d-flex">
+            <NavLink
+              to={`/products/${_id}`}
+              className="btn btn-primary w-100 me-1"
+            >
+              View Details
+            </NavLink>
+          </Card.Body>
+        </Card>
+      </div>
+    </Col>
+  );
+};
+
+export default Product;
