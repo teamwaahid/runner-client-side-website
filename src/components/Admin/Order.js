@@ -4,7 +4,7 @@ const Order = () => {
     const [orders, setOrders] = useState([]);
     const [update, setUpdate] = useState(true);
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://pacific-journey-60016.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setOrders(data));
     }, [update])
@@ -12,7 +12,7 @@ const Order = () => {
     function cancel(id) {
         const confirmation = window.confirm('Are you sure to Delete!!!')
         if (confirmation) {
-            fetch(`http://localhost:5000/delete/${id}`, {
+            fetch(`https://pacific-journey-60016.herokuapp.com/delete/${id}`, {
                 method: 'delete',
             })
                 .then(res => res.json())
@@ -30,7 +30,7 @@ const Order = () => {
     function handleConfirm(id) {
         const confirmation = window.confirm('Are you sure to Confirm!!!')
         if (confirmation) {
-            fetch(`http://localhost:5000/confirmation/${id}`, {
+            fetch(`https://pacific-journey-60016.herokuapp.com/confirmation/${id}`, {
                 method: 'put'
             })
                 .then(res => res.json())

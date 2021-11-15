@@ -1,36 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Col, Form, FormControl, InputGroup, Row } from "react-bootstrap";
-// import useAuth from "../hooks/useAuth.js";
+import useAuth from "../hooks/useAuth.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import { NavLink, useLocation, useHistory } from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-// import { useHistory } from "react-router";
+import { getAuth, signInWithEmailAndPassword } from "@firebase/auth";
 
 const Login = () => {
-  // const { signInUsingGoogle } = useAuth();
+  const { AllContexts } = useAuth();
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const location = useLocation();
+  const redirect = location?.state?.from || "/home";
 
-  const history = useHistory();
-  const { currentUser } = getAuth();
+  const {
+    // getEmail,
+    // getPassword,
+    // signInWithEmail,
+    error,
+    setUser,
+    setError,
+    signInWithGoogle
+  } = AllContexts;
 
-  if (currentUser) {
-    history.push("/products");
-  }
   const auth = getAuth();
-
   const logInSubmit = (event) => {
     event.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      .then((result) => {
         // Signed in
-        const user = userCredential.user;
+        setUser(result.user);
+        history.push(redirect)
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        setError(error.message);
       });
   };
 
@@ -38,8 +43,20 @@ const Login = () => {
     <div className="text-center my-4">
       <h2>Please Login</h2>
       <p className=" mt-2">Login with Email & Password</p>
+      <p className="text-danger text-center">{error}</p>
       <div style={{ maxWidth: "500px" }} className="w-100 px-3 mx-auto">
-        <Form onSubmit={logInSubmit}>
+        <Form onSubmit={logInSubmit}
+        // onSubmit={() => {
+        //   signInWithEmail()
+        //     .then((result) => {
+        //       setUser(result.user);
+        //       history.push(redirect);
+        //     })
+        //     .catch((err) => {
+        //       setError(err.message);
+        //     });
+        // }}
+        >
           <Row>
             <Col className="text-start">
               <Form.Label htmlFor="email" visuallyHidden>
@@ -51,6 +68,7 @@ const Login = () => {
                 </InputGroup.Text>
                 <FormControl
                   onChange={(event) => setEmail(event.target.value)}
+                  // onBlur={getEmail}
                   type="email"
                   autoComplete="current-email"
                   id="email"
@@ -70,6 +88,7 @@ const Login = () => {
                 </InputGroup.Text>
                 <FormControl
                   onChange={(event) => setPassword(event.target.value)}
+                  // onBlur={getPassword}
                   type="password"
                   autoComplete="current-password"
                   id="password"
@@ -86,7 +105,7 @@ const Login = () => {
       </div>
       <p className="mt-2">
         <NavLink className="text-decoration-none" to="/signup">
-          Need an Account?Please Sign up!
+          Need an Account? Please Sign up!
         </NavLink>
       </p>
     </div>

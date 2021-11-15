@@ -5,7 +5,7 @@ const Products = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://pacific-journey-60016.herokuapp.com/products')
             .then(res => res.json())
             .then(data => {
                 setProducts(data.products)
@@ -15,7 +15,7 @@ const Products = () => {
     function handleDelete(id) {
         const confirmation = window.confirm('Are you sure to Delete!!!')
         if (confirmation) {
-            fetch(`http://localhost:5000/product/${id}`, {
+            fetch(`https://pacific-journey-60016.herokuapp.com/product/${id}`, {
                 method: 'delete',
             })
                 .then(res => res.json())

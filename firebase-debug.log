@@ -1,0 +1,47 @@
+[debug] [2021-11-15T05:16:03.544Z] ----------------------------------------------------------------------
+[debug] [2021-11-15T05:16:03.549Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\teamw\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-11-15T05:16:03.550Z] CLI Version:   9.22.0
+[debug] [2021-11-15T05:16:03.550Z] Platform:      win32
+[debug] [2021-11-15T05:16:03.550Z] Node Version:  v16.4.0
+[debug] [2021-11-15T05:16:03.553Z] Time:          Mon Nov 15 2021 11:16:03 GMT+0600 (Bangladesh Standard Time)
+[debug] [2021-11-15T05:16:03.553Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-11-15T05:16:03.715Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-11-15T05:16:03.715Z] > authorizing via signed-in user (programmerwaahid@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Projects
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  .firebaserc already has a default project, using runner-314c5. 
+[debug] [2021-11-15T05:16:28.456Z] > refreshing access token with scopes: []
+[debug] [2021-11-15T05:16:28.457Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-11-15T05:16:30.330Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","date":"Mon, 15 Nov 2021 05:16:29 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"clear","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-11-15T05:16:30.885Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/runner-314c5 [none]
+[debug] [2021-11-15T05:16:31.791Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/runner-314c5 200
+[debug] [2021-11-15T05:16:31.791Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/runner-314c5 {"projectId":"runner-314c5","projectNumber":"736258815897","displayName":"runner","name":"projects/runner-314c5","resources":{"hostingSite":"runner-314c5","realtimeDatabaseInstance":"runner-314c5-default-rtdb"},"state":"ACTIVE"}
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 

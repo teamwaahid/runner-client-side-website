@@ -7,7 +7,7 @@ const useProducts = () => {
   const size = 9;
   useEffect(() => {
     fetch(
-      `http://localhost:5000/products?size=${size}&&page=${currentPage}`
+      `https://pacific-journey-60016.herokuapp.com/products?size=${size}&&page=${currentPage}`
     )
       .then((res) => res.json())
       .then((data) => {

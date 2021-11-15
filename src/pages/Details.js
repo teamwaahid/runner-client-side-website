@@ -18,7 +18,7 @@ const Details = () => {
   const { uid, displayName, photoURL, email } = user;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${id}`)
+    fetch(`https://pacific-journey-60016.herokuapp.com/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data?._id) {

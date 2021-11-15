@@ -13,7 +13,7 @@ const Review = () => {
     const { displayName, photoURL, email } = user;
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://pacific-journey-60016.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => {
                 setReviews(data[0])

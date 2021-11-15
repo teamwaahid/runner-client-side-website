@@ -7,7 +7,7 @@ const useCart = () => {
   const [selectedProduct, setSelectedProduct] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/cart/${uid}`)
+    fetch(`https://pacific-journey-60016.herokuapp.com/cart/${uid}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.length) {
@@ -28,7 +28,7 @@ const useCart = () => {
     if (isHave) {
       alert("Product has been selected!");
     } else {
-      fetch("http://localhost:5000/product/add", {
+      fetch("https://pacific-journey-60016.herokuapp.com/product/add", {
         method: "post",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(product),

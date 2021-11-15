@@ -9,7 +9,7 @@ const Review = () => {
         const rating = ratingRef.current.value;
         const user = { description: desc, rating: rating }
 
-        const response = await fetch('http://localhost:5000/review', {
+        const response = await fetch('https://pacific-journey-60016.herokuapp.com/review', {
             method: 'post',
             headers: { "content-type": "application/json" },
             body: JSON.stringify(user)

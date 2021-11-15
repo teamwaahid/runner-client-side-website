@@ -15,7 +15,7 @@ const AddProduct = () => {
         const price = priceRef.current.value;
         const user = { title: title, description: desc, img: pic, rating: rating, price: price }
 
-        const response = await fetch('http://localhost:5000/newproduct/add', {
+        const response = await fetch('https://pacific-journey-60016.herokuapp.com/newproduct/add', {
             method: 'post',
             headers: { "content-type": "application/json" },
             body: JSON.stringify(user)
